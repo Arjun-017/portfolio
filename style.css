@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+:root{
+	--bg-clr: #000;
+	--accent-clr: cyan;
+	--box-clr: #111;
+	--light-clr: hsl(161, 70%, 60%);
+
+}
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: cyan black;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: cyan;
+  border-radius: 2px;
+  border: 3px;
+  box-shadow: 0 0 1em 0.05em var(--accent-clr);
+
+}
+
+
+*,*::before,*::after{
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+body{
+	background: var(--bg-clr);
+	color: var(--accent-clr);
+	font-family: sans-serif;
+	font-size: 62.5%;
+	position: relative;
+}
+header{
+	margin: 3em 0 0;
+}
+
+.menu{
+	width: 3em;
+	height: 0.25em;
+	transform: scale(1);
+	background: var(--accent-clr);
+
+}
+.menu-holder{
+	position: absolute;
+	margin: 3em 3em 0;
+	right: 0;
+	width: 3em;
+	padding: 2em 0;
+	cursor: pointer;
+}
+.menu{
+	position: relative;	
+}
+.menu::before, .menu::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	width: inherit;
+	height: inherit;
+	background: var(--accent-clr);
+	box-shadow: inherit;
+}
+.menu::before{
+	bottom: 1em;
+}
+.menu::after{
+	top: 1em;
+}
+.menu-holder:hover .menu{
+	box-shadow: 0 0 5px 2px var(--accent-clr);
+	transition: 200ms ease-out;
+}
+.menu-holder:hover nav ul{
+	transform: translateX(0em);
+}
+nav{
+    width: 100%;
+}
+nav ul {
+	display: flex;
+	list-style: none;
+	justify-content: flex-end;
+}
+nav ul li{
+	padding: 1em 1.5em;
+}
+.menu-items{
+	position: relative;
+	text-decoration: none;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.1rem;
+	color: var(--accent-clr);
+	letter-spacing: 0.3rem;
+}
+.menu-items::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: var(--accent-clr);
+	left: 0;
+	bottom: -2px ;
+	transform: scaleX(0);
+	transition: transform 500ms;
+
+}
+.menu-items:hover::after, 
+.menu-items:active::after {
+	transform: scaleX(1.1);
+}
+
+
+.splash-container{
+	position: relative;
+	margin-top: 5%;
+	width: min(800px,120vw);
+	height: min(800px,120vw);
+	border-radius: 50%;
+	transform: translateX(-100%);
+	animation: splash-move 2s ease forwards;
+	animation-delay: 1.5s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 5px solid var(--accent-clr);
+}
+.splash-content {
+	max-width: 50%;
+	letter-spacing: 0.5rem;
+	line-height: 4rem;
+	user-select: none;
+}
+.splash-content h1 {
+	font-size: 8rem;
+	font-family: 'Poppins', sans-serif;
+	padding-bottom: 0.8em;
+}
+.splash-content p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 4.5rem;
+	letter-spacing: 0.5rem;
+}
+.splash-content p span{
+	font-weight: 1000;
+	color: brown;
+}
+.about-container{
+	position: relative;
+	width: 100%;
+	margin: 5% 5%;
+	max-width: 90%;
+}
+.about-container-header {
+  font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	font-size: 4rem;
+	padding: 0.6em 1.5em;
+	position: relative;
+}
+.about-container-header::after {
+	content: '';
+	width: 50%;
+	height: 2px;
+	background: var(--accent-clr);
+	position: absolute;
+	bottom: 0.5em;
+	left: 0px;
+	transform-origin: center;
+	transform: scaleX(0);
+	transition: transform 500ms;
+
+}
+.about-container-header:hover::after {
+	transform: scaleX(1);
+}
+.about-container p {
+   font-family: 'Poppins', sans-serif;
+	font-weight: 100;
+	font-size: 1.6rem;
+	letter-spacing: 0.5rem;
+	padding: .5em 1em;
+}
+.gallery-container{
+	position: relative;
+}
+.gallery-container .gallery-header{
+	position: relative;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	font-size: 4rem;
+	padding-top: 1em;
+}
+.gallery{
+	position: relative;
+	padding-top: 5em;
+	width: 90%;
+	height: 100vh;
+	margin: 0px auto;
+	grid-template-columns: repeat(5,1fr);
+	grid-auto-rows: auto;
+  display: grid;
+	gap: 5px;
+	grid-template-areas: "a a d c b"
+									  	 "a a d c b"
+											 "f h h j j"
+											 "f h h j j"
+											 "i i g g e"
+											 "i i g g e";
+
+
+}
+.gallery div:hover, .gallery div:active{
+	transform: scale(1.02);
+}
+.gallery div{
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	transition: transform 500ms ease;
+	filter: brightness(120%);
+}
+.gallery div::after{
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	transition: background 500ms ease-out;
+}
+.gallery div:hover::after, .gallery div:active::after{
+	background: rgba(0,0,0,0);
+}
+
+
+#image1{
+	 background-image: url(images/img1.jpeg);
+	 grid-area: a;
+}
+#image2{
+	 background-image: url(images/img2.jpeg);
+	 grid-area: b;
+}
+#image3{
+	 background-image: url(images/img3.jpeg);
+	 grid-area: c;
+}
+#image4{
+ 	 background-image: url(images/img4.jpeg);
+	 grid-area: d;
+}
+#image5{
+	 background-image: url(images/img5.jpeg);
+	 grid-area: e;
+}
+#image6{
+	 background-image: url(images/img6.jpeg);
+	 grid-area: f;
+}
+#image7{
+	 background-image: url(images/img7.jpeg);	
+	 grid-area: g;
+}
+
+#image8{
+	 background-image: url(images/img8.jpeg);	
+	 grid-area: h;
+}
+
+#image9{
+	 background-image: url(images/img9.jpg);	
+	 grid-area: i;
+}
+#image10{
+	 background-image: url(images/img10.jpg);	
+	 grid-area: j;
+}
+
+.contact-container{
+	position: relative;
+	margin: 5% auto 0%;
+	padding: 2em 1em 3.5em;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 1.5rem;
+	background: #111111;
+	max-width: 100%;
+	min-height: 300px;
+}
+.contact-container .contact-content{
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 0.3rem;
+	line-height: 1.6em;
+	font-weight: 300;
+}
+.contact-container .contact-content a{
+	text-decoration: none;
+	color: brown;
+	font-style: italic;
+	cursor: pointer;
+	font-weight: 500;
+}
+.contact-container .social-media-handler p{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	letter-spacing: 0.2rem;
+	padding-bottom: 2em;
+}
+.contact-container .social-media-handler .social-media-icons{
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+}
+.social-media-icons a{
+	font-size: 4rem;
+	color: brown;
+	text-decoration: none;
+	transition: text-shadow 500ms linear;
+}
+.social-media-icons a:hover{
+	text-shadow: 0 0 10px brown;
+}
+
+
+
+@keyframes splash-move {
+	to{
+		transform: translateX(-20%);
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.gallery{
+		height: 80vh;
+	}
+}
+@media only screen and (max-width: 700px) {
+	.splash-content h1{
+		font-size: 5rem;
+	}
+	.splash-content p{
+		font-size: 2.5rem;
+	}
+	.about-container .about-container-header{
+		font-size: 3rem;
+		text-align: center;
+	}
+	.about-container-header::after{
+		width: 100%;
+		transform-origin: center;
+	}
+	.about-container p{
+		font-size: 1.5rem;
+	}
+	.gallery{
+
+		grid-template-columns: 1fr;
+		grid-auto-rows: 1fr 1.2fr 1.2fr 1.2fr 1.2fr 1fr 1fr 1fr 1fr 1.2fr;
+		grid-template-areas: 'a'
+		 										 'd'
+		 										 'c'
+		 										 'b'
+		 										 'f'
+		 										 'h'
+		 										 'j'
+		 										 'i'
+		 										 'g'
+		 										 'e';
+		height: 300vh;
+	}
+	.contact-container .contact-content{
+		font-size: 1.2rem;
+		letter-spacing: 0.15rem;
+	}
+	.contact-container .social-media-handler p{
+		font-size: 1.2rem;
+		padding-bottom: 1em;
+	}
+	.contact-container .social-media-handler .social-media-icons a{
+		font-size: 2.5rem;
+	}
+	@media only screen and (max-width: 500px){
+		.contact-container .social-media-handler .social-media-icons{
+			justify-content: space-around;
+		}
+		.contact-container .social-media-handler .social-media-icons a{
+			font-size: 1.5rem;
+		}
+	}
+	@media only screen and (max-width: 460px){
+		nav{
+			display: none;
+		}
+		.splash-container .splash-content h1{
+			font-size: 2.5rem;
+			padding-bottom: 0.2rem;
+		}
+		.splash-container .splash-content p{
+			font-size: 1.8rem;
+			letter-spacing: 0.2em;
+			line-height: 1.5em;
+		}
+		.about-container .about-container-header{
+			font-size: 2.5rem;
+		}
+		.about-container p{
+			font-size: 1.2rem;
+			font-weight: 200;
+		}
+		.contact-container{
+			padding: 1em 0 1em;
+		}
+		.contact-container .contact-content p{
+			font-size: 0.8rem;
+			line-height: 1.4em;
+			letter-spacing: 0.1em;
+		}
+		.contact-container .social-media-handler p{
+			font-size: 0.8rem;
+		}
+		.contact-container .social-media-handler .social-media-icons{
+		}
+	}
+}
