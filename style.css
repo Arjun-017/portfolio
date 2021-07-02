@@ -178,7 +178,7 @@ nav ul li{
 }
 .about-container-header::after {
 	content: '';
-	width: 50%;
+	width: 70%;
 	height: 2px;
 	background: var(--accent-clr);
 	position: absolute;
