@@ -52,7 +52,7 @@ body{
 .container{
 	height: 100vh;
 	scroll-snap-type: y mandatory;
-	overflow-y: auto;
+	overflow-y: scroll;
 }
 .container header,div{
 	scroll-snap-align: start;
